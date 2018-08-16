@@ -24,4 +24,4 @@ client.on("guildMemberAdd", member => {
 }, timer)
 })
 
-client.login('توكن البوت');
+client.login(process.env.BOT_TOKEN);
