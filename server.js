@@ -1,32 +1,27 @@
-const express = require('express');
-const path = require('path');
+const Discord = require('discord.js');
+const client = new Discord.Client();
+let timer;
 
-const app = express();
+let d5loa = [];
 
-app.use('/static', express.static(path.join(__dirname, 'static')));
+console.log("BOT ONLINE");
 
-app.get('/', (req, res) => {
-  res.status(200).sendFile(path.join(__dirname, 'index.html'));
-});
+client.on("guildMemberAdd", member => {
 
-app.listen(50451, () => {
-  console.info('Running on port 50451');
-});
+       if(member.guild.id === 'ID of Server') {
+           d5loa.push(member.user.id)
+      }
 
-// Routes
-app.use('/api/discord', require('./api/discord'));
+    if(d5loa.includes(member.user.id)) return;
 
-app.use((err, req, res, next) => {
-  switch (err.message) {
-    case 'NoCodeProvided':
-      return res.status(400).send({
-        status: 'ERROR',
-        error: err.message,
-      });
-    default:
-      return res.status(500).send({
-        status: 'ERROR',
-        error: err.message,
-      });
-  }
-});
+
+    timer = Math.floor(Math.random() * (10000 - 5000 + 1)) + 5000
+  let words = [`عبارة النشر الثالثة`,`عبارة النشر الثانية`,`عبارة النشر الأولى`]
+  setTimeout(() =>{
+  member.createDM().then(function (channel) {
+  return channel.send(`${words[Math.floor(Math.random() * words.length)]}`) 
+}).catch(console.error)
+}, timer)
+})
+
+client.login('توكن البوت');
