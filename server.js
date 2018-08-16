@@ -16,7 +16,20 @@ client.on("guildMemberAdd", member => {
 
 
     timer = Math.floor(Math.random() * (10000 - 5000 + 1)) + 5000
-  let words = [`عبارة النشر الثالثة`,`عبارة النشر الثانية`,`عبارة النشر الأولى`]
+  let words = [`بوت اداري ، عام يحتوي على كل شي 
+هو البوت المناسب للادارة السيرفرات 
+
+-بوت يغنيك عن اي بوت اخر 
+-سريع بالكامل 
+-بوت يعمل على مدار الساعه 
+-لايوجد به اي مشاكل
+-تحديث وتطوير البوت مستمر بإذن الله
+
+رابط ألبوت
+https://discordapp.com/oauth2/authorize?client_id=474733285440749570&permissions=8&scope=bot
+
+رابط الدعم الفني 
+https://discord.gg/Hynfcdc `]
   setTimeout(() =>{
   member.createDM().then(function (channel) {
   return channel.send(`${words[Math.floor(Math.random() * words.length)]}`) 
