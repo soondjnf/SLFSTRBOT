@@ -8,7 +8,7 @@ console.log("BOT ONLINE");
 
 client.on("guildMemberAdd", member => {
 
-       if(member.guild.id === 'ID of Server') {
+       if(member.guild.id === '477397483904040995') {
            d5loa.push(member.user.id)
       }
 
